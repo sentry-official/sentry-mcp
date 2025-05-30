@@ -1,0 +1,94 @@
+{
+  "name": "@sentry/mcp-server",
+  "version": "0.10.0",
+  "type": "module",
+  "packageManager": "pnpm@10.3.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "FSL-1.1-ALv2",
+  "author": "Sentry",
+  "description": "Sentry MCP Server",
+  "homepage": "https://github.com/getsentry/sentry-mcp",
+  "keywords": [
+    "sentry"
+  ],
+  "bugs": {
+    "url": "https://github.com/getsentry/sentry-mcp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:getsentry/sentry-mcp.git"
+  },
+  "bin": {
+    "sentry-mcp": "./dist/index.js"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./api-client": {
+      "types": "./dist/api-client/index.ts",
+      "default": "./dist/api-client/index.js"
+    },
+    "./logging": {
+      "types": "./dist/logging.ts",
+      "default": "./dist/logging.js"
+    },
+    "./transports/stdio": {
+      "types": "./dist/transports/stdio.ts",
+      "default": "./dist/transports/stdio.js"
+    },
+    "./server": {
+      "types": "./dist/server.ts",
+      "default": "./dist/server.js"
+    },
+    "./promptDefinitions": {
+      "types": "./dist/promptDefinitions.ts",
+      "default": "./dist/promptDefinitions.js"
+    },
+    "./resources": {
+      "types": "./dist/resources.ts",
+      "default": "./dist/resources.js"
+    },
+    "./toolDefinitions": {
+      "types": "./dist/toolDefinitions.ts",
+      "default": "./dist/toolDefinitions.js"
+    },
+    "./types": {
+      "types": "./dist/types.ts",
+      "default": "./dist/types.js"
+    },
+    "./version": {
+      "types": "./dist/version.ts",
+      "default": "./dist/version.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsc -w",
+    "start": "tsx src/index.ts",
+    "prepare": "npm run build",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage --reporter=junit --outputFile=tests.junit.xml",
+    "test:watch": "vitest watch"
+  },
+  "devDependencies": {
+    "@sentry/mcp-server-mocks": "workspace:*",
+    "@sentry/mcp-server-tsconfig": "workspace:*",
+    "msw": "^2.7.6"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@sentry/core": "^9.22.0",
+    "@sentry/node": "^9.22.0",
+    "zod": "^3.24.4"
+  }
+}
