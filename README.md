@@ -11,7 +11,7 @@ It is based on [Cloudflare's work towards remote MCPs](https://blog.cloudflare.c
 
 You'll find everything you need to know by visiting the deployed service in production:
 
-<https://mcp.sentry.dev>
+<https://mcp.sentry.dev> 
 
 If you're looking to contribute, learn how it works, or to run this for self-hosted Sentry, continue below..
 
